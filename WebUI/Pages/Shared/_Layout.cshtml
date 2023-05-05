@@ -1,60 +1,517 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    </style>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Rent Go</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>Rentgo | Dashboard </title>
 
-    @RenderSection("styles", required: false)
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Rent Go</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="reportsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Raporlar
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="reportsDropdown">
-                        <a class="dropdown-item" href="#">Alış Raporları</a>
-                        <a class="dropdown-item" href="#">Satış Raporları</a>
-                        <a class="dropdown-item" href="#">Info Raporu</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Satış</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">SatınAlma</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">İzin İşlemleri</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kiralama İşlemleri</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Faturalar</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container">
-        @RenderBody()
+@*<header>
+    <style>
+        h1{
+            font-size:40px;
+            text-align:center;
+            background-color: #343a40;
+            color:white;
+        }
+    </style>
+    <div>
+        <h1>Rentgo Program Portalı</h1>
     </div>
+        
+   
+</header>*@
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index3.html" class="brand-link">
+                <img src="~/adminlte-3.0.4/login-form-19/images/rent.png" />
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Admin</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+                        @if (User.IsInRole("A"))
+                        {
+                            <li class="nav-item has-treeview">
+                                <a href="/AdminCategory/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Kategoriler
+                                    </p>
+                                </a>
+                            </li>
+                        }
+                     
+                        <li class="nav-item has-treeview">
+                            <a href="/Writer/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Programlar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Raporlar
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/charts/chartjs.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>İnfo Raporu</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/flot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ciro Raporu</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/inline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Satış Raporu</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/About/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    Hakkımızda
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/About/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    Kullanıcı Bilgileri
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/About/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    Yetki Ekranı
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/Contact/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    İletişim
+                                </p>
+                            </a>
+                        </li>
+                        
+
+                      
+                        <li class="nav-item">
+                            <a href="/Gallery/Index/" class="nav-link">
+                                <i class="nav-icon far fa-image"></i>
+                                <p>
+                                    Galeri
+                                </p>
+                            </a>
+                        </li>
+                    
+                     
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-apple-alt"></i>
+                                <p>
+                                    Çıkış Yap
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+            <!-- Main content -->
+            <div class="content">
+               
+
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    @*<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>*@
+    <!-- Bootstrap -->
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="~/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+    <script src="~/AdminLTE-3.0.4/dist/js/pages/dashboard3.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Alt menülerin varsayılan olarak gizli olduğundan emin olun
+            $('.nav-treeview').hide();
+
+            // Ana menü öğelerine tıklandığında alt menülerin açılması
+            $('.nav-item').click(function () {
+                $(this).find('.nav-treeview').slideToggle();
+            });
+        });
+    </script>
+
 </body>
+<footer>
+    <style>
+        footer {
+            color: #fff;
+        }
+
+        ul {
+            padding: 0px;
+        }
+
+        ol, ul {
+            margin-bottom: 0px;
+        }
+
+        .social-icon {
+            padding: 0;
+            margin-bottom: 0px;
+            float: right;
+        }
+
+            .social-icon li {
+                list-style: none;
+                display: inline-block;
+            }
+
+                .social-icon li i {
+                    font-size: 14px;
+                    color: #262725;
+                    border: solid 2px #ffffff;
+                    height: 31px;
+                    width: 31px;
+                    text-align: center;
+                    vertical-align: middle;
+                    border-radius: 100px;
+                    line-height: 27px;
+                    margin-right: 15px;
+                    transition: 1s;
+                    background: #fff;
+                }
+
+                    .social-icon li i:hover {
+                        border: solid 2px #262725;
+                        color: #ffffff;
+                        background: #262725;
+                    }
+
+        .phone-no i {
+            position: relative;
+            margin-right: 14px;
+            font-size: 43px;
+            top: 5px;
+        }
+
+        .phone-no {
+            margin-top: -22px;
+            text-align: right;
+        }
+
+        .footer-day-time {
+            padding-bottom: 30px;
+            border-bottom: 2px solid #7a6f6f;
+            padding-top: 14px;
+            margin-bottom: 55px;
+        }
+
+            .footer-day-time ul li {
+                display: inline;
+                margin-right: 20px;
+            }
+
+                .footer-day-time ul li:last-child {
+                    margin-right: 0px;
+                }
+
+        .phone-no a {
+            color: #fff;
+            font-family: PlayfairDisplay-Black;
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .footer-top {
+            background:#343a40;
+            padding: 50px 0 50px;
+        }
+
+            .footer-top h4 {
+                font-size: 19px;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+            }
+
+            .footer-top p {
+                font-size: 13px;
+                line-height: 2;
+            }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        .footer-logo {
+            display: block;
+            margin-bottom: 32px;
+        }
+
+        .address1 li {
+            list-style: none;
+            position: relative;
+            padding: 0px 0 14px 34px;
+            line-height: 26px;
+        }
+
+        ul.address1 span {
+            position: absolute;
+            width: 40px;
+            max-width: 40px;
+            left: 0;
+        }
+
+        .address1 li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        ul.address1 i {
+            width: 20px;
+            position: absolute;
+            left: 0px;
+            text-align: center;
+            font-size: 28px;
+            top: 0;
+        }
+
+            ul.address1 i.fa-envelope {
+                font-size: 18px;
+                top: 4px;
+            }
+
+        footer ul.social-icon {
+            float: left;
+        }
+
+        footer .social-icon li i:hover {
+            background: #4b8800;
+            border-color: #4b8800;
+        }
+
+        .footer-bottom {
+            background: #4b8800;
+            padding: 10px 0px;
+        }
+
+            .footer-bottom ul li {
+                display: inline;
+                margin-right: 20px;
+                font-size: 18px;
+            }
+
+                .footer-bottom ul li a {
+                    color: #fff;
+                }
+
+            .footer-bottom ul {
+                float: right;
+            }
+
+                .footer-bottom ul li:last-child {
+                    margin-right: 0;
+                }
+
+        .copyright {
+            font-size: 18px;
+        }
+    </style>
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-day-time">
+                <div class="row">
+                    <div class="col-md-8">
+                        <ul>
+                            <li>Çalışma Saatleri: Pazartesi - Cuma: 8:30 - 18:00</li>
+                          
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="phone-no">
+                            <a href="tel:+12 34 56 78 90"><i class="fa fa-mobile" aria-hidden="true"></i>Telefon +9 (0216) 379 82 82</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+
+                    <h4>Hakkımızda</h4>
+                    <p>
+                        Rent Go, 100 yılı aşan köklü geçmişi ile Türkiye’nin en güvenilir ve önde gelen şirketlerinden biri olan Tunalar Şirketler Topluluğu'nun araç kiralama markasıdır.
+
+                        Araç kiralamada daima yeni ve güvenli araçlar ve yüksek hizmet kalitesi sunan Rent Go, çatısı altında bulunduğu topluluğun 30 yıldan fazla kurumsal otomotiv sektörü deneyimini, yenilikçi vizyonu ve uzman kadrosu ile birleştirerek, kısa sürede araç kiralama sektörünün lider oyuncularından biri haline gelmiştir.
+
+                        Tamamı yerli sermaye ile kurulan Rent Go, günlük kiralama hizmetinin yanı sıra Rent Go Filo ile kurumsal şirketlere uzun dönem filo kiralama hizmeti vermektedir.
+                    </p>
+
+                </div>
+
+                <div class="col-md-4">
+                    <h4>İletişim</h4>
+                    <ul class="address1">
+                        <li><i class="fa fa-map-marker"></i>Adres: Orta Mahallesi Ankara Caddesi No:2/1 E-5 Kavşağı Metro Çıkışı Karşısı Tunalar Plaza Pendik / İstanbul</li>
+                        <li><i class="fa fa-envelope"></i><a href="mailto:#">info@rentgo.com</a></li>
+                        <li><i class="fa fa-mobile" aria-hidden="true"></i> <a href="tel:0216 379 82 82</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>Sosyal Medya Hesaplarımız</h4>
+                    <ul class="social-icon">
+                        <li><a href="https://www.facebook.com/RentGo/?locale=tr_TR"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/rentgo/?hl=tr"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/RentGoTurkiye?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <p class="copyright text-uppercase">
+                    <p>Telif Hakkı © 2023. RentGo. Tüm hakları saklıdır.</p>
+                    </p>
+                </div>
+                <div class="col-sm-7">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our services</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+@*<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h1>Hakkımızda</h1>
+                <p>
+                    Rent Go, 100 yılı aşan köklü geçmişi ile Türkiye’nin en güvenilir ve önde gelen şirketlerinden biri olan Tunalar Şirketler Topluluğu'nun araç kiralama markasıdır.
+
+                    Araç kiralamada daima yeni ve güvenli araçlar ve yüksek hizmet kalitesi sunan Rent Go, çatısı altında bulunduğu topluluğun 30 yıldan fazla kurumsal otomotiv sektörü deneyimini, yenilikçi vizyonu ve uzman kadrosu ile birleştirerek, kısa sürede araç kiralama sektörünün lider oyuncularından biri haline gelmiştir.
+
+                    Tamamı yerli sermaye ile kurulan Rent Go, günlük kiralama hizmetinin yanı sıra Rent Go Filo ile kurumsal şirketlere uzun dönem filo kiralama hizmeti vermektedir.
+                </p>
+            </div>    
+            
+            <div class="col-md-4 text-center">
+                <h1>Bize Ulaşın</h1>
+                <p>
+                    Adres: Orta Mahallesi Ankara Caddesi No:2/1 E-5 Kavşağı Metro Çıkışı Karşısı Tunalar Plaza Pendik / İstanbul
+                </p>
+                <p>Telefon: 0216 379 82 82</p>
+                <p>E-posta: info@rentgo.com</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h1>Bize Ulaşın</h1>
+                <p>
+                    Adres: Orta Mahallesi Ankara Caddesi No:2/1 E-5 Kavşağı Metro Çıkışı Karşısı Tunalar Plaza Pendik / İstanbul
+                </p>
+                <p>Telefon: 0216 379 82 82</p>
+                <p>E-posta: info@rentgo.com</p>
+            </div>
+        </div>
+    </div>
+    <style>
+        h1{
+            font-size:30px;
+            color:red;
+        }
+        body {
+          
+ 
+            background-color: #343a40;
+            color:white;
+        }
+    </style>
+    
+</footer>*@
 </html>
+
+
+

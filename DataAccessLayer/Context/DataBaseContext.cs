@@ -25,6 +25,7 @@ namespace DataAccessLayer.Context
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Program> Programs { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Admin> Admins { get; set; }
 
     }
 }
