@@ -1,0 +1,30 @@
+﻿@*@using EntityLayer.Entities;
+@model List<Programs>
+
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+
+<h1>Yeni Program Ekle</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Ekle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProgramName" class="control-label"></label>
+                <input asp-for="ProgramName" class="form-control" />
+                <span asp-validation-for="ProgramName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>*@
+

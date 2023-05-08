@@ -2,7 +2,7 @@
 
 namespace WebUI.Controllers
 {
-    public class CategoryController : Controller
+    public class LogoutController : Controller
     {
         public IActionResult Index()
         {

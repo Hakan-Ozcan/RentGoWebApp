@@ -12,6 +12,6 @@ namespace EntityLayer.Entities
         [Key]
         public int ID { get; set; }
         [Required]
-        public int AuthorityName { get; set; } 
+        public string AuthorityName { get; set; } 
     }
 }

@@ -1,0 +1,67 @@
+﻿@using EntityLayer.Entities;
+@model List<Programs>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Paneli</title>
+
+</head>
+<body>
+    <style>
+        body {
+            background-color: #f8f8f8; /* Krem rengi arka plan */
+
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ekran yüksekliğinin tamamını kaplar */
+        }
+
+        main {
+            background-color: #fff; /* Beyaz arkaplan */
+
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+    <main>
+
+        <h1>Program Ekleme Paneli</h1>
+        @using (Html.BeginForm("Index", "Programs", FormMethod.Post))
+        {
+
+
+            <div class="form-group">
+                <label>Lütfen Eklemek istediğiniz programı giriniz : </label>
+                <input type="text" class="form-control" name="ProgramAdı" placeholder="ProgramAdı" required>
+            </div>
+            <div class="form-group">
+                <label>Eklemek istediğiniz programda kim yetkili olsun :</label>
+                <select name="role">
+                    <option value="admin">Admin</option>
+                    <option value="kullanıcı">Kullanıcı</option>
+                    <option value="personel">Personel</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Ekle</button>
+            </div>
+        }
+    </main>
+
+
+</body>
+</html>
+
+

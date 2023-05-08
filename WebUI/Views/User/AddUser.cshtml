@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Entities;
+@model List<User>
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Rent GO</title>
+
+</head>
+<body class="position-absolute">
+
+
+    <div class="container top-50 ">
+        @using (Html.BeginForm("AddUser", "User", FormMethod.Post))
+        {
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <h1 class="text-center">Kullanici Ekleme Sayfasi</h1>
+            <form>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Kullanici adi</label>
+                    <input type="text" class="form-control" id="kkadi" name="UserName" placeholder="Kullanici Adi Giriniz">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Kullanici Soyadi</label>
+                    <input type="text" class="form-control" id="ksoyadi" name="UserSurname" placeholder="Kullanici Soyadi Giriniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Parola</label>
+                    <input type="password" class="form-control" id="kparola" name="UserPassword" placeholder="Parola Oluşturunuz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="kemail" name="UserEmail" placeholder="Email Giriniz">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        }
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    <title>Aradığınız Sayfa Bulunamadı</title>
+</head>
+
+
+
+<body>
+
+    <style>
+        body {
+            background-image: url('/images/background.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+        }
+    </style>
+
+  
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="content text-center">
+            <h1 class="display-4">Çıkış Yaptınız</h1>
+            <p class="lead">Güle güle! Tekrar bekleriz.</p>
+            <hr>
+            <a href="@Url.Action("Index", "Login")" class="btn btn-primary btn-lg">Ana Sayfaya Dön</a>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha384-J6qa4849blE2+poTNGsXnVnV9pdZIStTQQ0jZXo6EUPm6iLYO6UksdQRVvoxMfoo"
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfIrmQOfEWO8wwoX6E9M6UwoNNJVWJj2KaDZgjM5w"
+            crossorigin="anonymous"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
