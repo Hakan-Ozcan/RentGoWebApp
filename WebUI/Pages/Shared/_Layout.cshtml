@@ -1,4 +1,5 @@
 ﻿@{
+    ViewData["Title"] = "Index";
     Layout = null;
 }
 <!DOCTYPE html>
@@ -20,21 +21,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-@*<header>
-    <style>
-        h1{
-            font-size:40px;
-            text-align:center;
-            background-color: #343a40;
-            color:white;
-        }
-    </style>
-    <div>
-        <h1>Rentgo Program Portalı</h1>
-    </div>
-        
-   
-</header>*@
+
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -64,111 +51,212 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-                        @if (User.IsInRole("A"))
+                        @if (ViewBag.AdminRole == "A")
                         {
                             <li class="nav-item has-treeview">
-                                <a href="/AdminCategory/Index/" class="nav-link">
+                                <a href="/Programs/Ekle/" class="nav-link">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
-                                        Kategoriler
+                                        Program Ekle
+                                    </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item has-treeview">
+                                <a href="/Programs/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>
+                                        Programlar
+                                    </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-chart-pie"></i>
+                                    <p>
+                                        Raporlar
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/charts/chartjs.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>İnfo Raporu</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/charts/flot.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Ciro Raporu</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/charts/inline.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Satış Raporu</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item has-treeview">
+                                <a href="/About/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-tree"></i>
+                                    <p>
+                                        Hakkımızda
+                                    </p>
+                                </a>
+
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="/User/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-tree"></i>
+                                    <p>
+                                        Kullanıcı Bilgileri
+                                    </p>
+                                </a>
+
+                            </li>
+
+
+                            <li class="nav-item has-treeview">
+                                <a href="/About/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-tree"></i>
+                                    <p>
+                                        Yetki Ekranı
+                                    </p>
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item has-treeview">
+                                <a href="/Contact/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>
+                                        İletişim
+                                    </p>
+                                </a>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a href="/Gallery/Index/" class="nav-link">
+                                    <i class="nav-icon far fa-image"></i>
+                                    <p>
+                                        Galeri
+                                    </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item has-treeview">
+                                <a href="Logout/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-apple-alt"></i>
+                                    <p>
+                                        Çıkış Yap
                                     </p>
                                 </a>
                             </li>
                         }
-                     
-                        <li class="nav-item has-treeview">
-                            <a href="/Programs/Index/" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Programlar
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Raporlar
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>İnfo Raporu</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Ciro Raporu</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Satış Raporu</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/About/Index/" class="nav-link">
-                                <i class="nav-icon fas fa-tree"></i>
-                                <p>
-                                    Hakkımızda
-                                </p>
-                            </a>
+                        @if (ViewBag.AdminRole == "B")
+                        {
+                            <li class="nav-item has-treeview">
+                                <a href="/About/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-tree"></i>
+                                    <p>
+                                        Hakkımızda
+                                    </p>
+                                </a>
 
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/User/Index/" class="nav-link">
-                                <i class="nav-icon fas fa-tree"></i>
-                                <p>
-                                    Kullanıcı Bilgileri
-                                </p>
-                            </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="/User/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-tree"></i>
+                                    <p>
+                                        Kullanıcı Bilgileri
+                                    </p>
+                                </a>
 
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/About/Index/" class="nav-link">
-                                <i class="nav-icon fas fa-tree"></i>
-                                <p>
-                                    Yetki Ekranı
-                                </p>
-                            </a>
+                            </li>
 
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/Contact/Index/" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>
-                                    İletişim
-                                </p>
-                            </a>
-                        </li>
-                        
 
-                      
-                        <li class="nav-item">
-                            <a href="/Gallery/Index/" class="nav-link">
-                                <i class="nav-icon far fa-image"></i>
-                                <p>
-                                    Galeri
-                                </p>
-                            </a>
-                        </li>
-                    
-                     
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-apple-alt"></i>
-                                <p>
-                                    Çıkış Yap
-                                </p>
-                            </a>
-                        </li>
+                            <li class="nav-item has-treeview">
+                                <a href="/About/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-tree"></i>
+                                    <p>
+                                        Yetki Ekranı
+                                    </p>
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item has-treeview">
+                                <a href="/Contact/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>
+                                        İletişim
+                                    </p>
+                                </a>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a href="/Gallery/Index/" class="nav-link">
+                                    <i class="nav-icon far fa-image"></i>
+                                    <p>
+                                        Galeri
+                                    </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item has-treeview">
+                                <a href="Logout/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-apple-alt"></i>
+                                    <p>
+                                        Çıkış Yap
+                                    </p>
+                                </a>
+                            </li>
+                        }
+                        @if (ViewBag.AdminRole == "C")
+                        {
+                            <li class="nav-item has-treeview">
+                                <a href="/Contact/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>
+                                        İletişim
+                                    </p>
+                                </a>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a href="/Gallery/Index/" class="nav-link">
+                                    <i class="nav-icon far fa-image"></i>
+                                    <p>
+                                        Galeri
+                                    </p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item has-treeview">
+                                <a href="Logout/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-apple-alt"></i>
+                                    <p>
+                                        Çıkış Yap
+                                    </p>
+                                </a>
+                            </li>
+                        } 
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -181,7 +269,7 @@
 
             <!-- Main content -->
             <div class="content">
-               @RenderBody()
+                @RenderBody()
 
                 <!-- /.container-fluid -->
             </div>
@@ -299,7 +387,7 @@
         }
 
         .footer-top {
-            background:#343a40;
+            background: #343a40;
             padding: 50px 0 50px;
         }
 
@@ -399,7 +487,7 @@
                     <div class="col-md-8">
                         <ul>
                             <li>Çalışma Saatleri: Pazartesi - Cuma: 8:30 - 18:00</li>
-                          
+
                         </ul>
                     </div>
                     <div class="col-lg-4">
@@ -416,9 +504,6 @@
                     <p>
                         Rent Go, 100 yılı aşan köklü geçmişi ile Türkiye’nin en güvenilir ve önde gelen şirketlerinden biri olan Tunalar Şirketler Topluluğu'nun araç kiralama markasıdır.
 
-                        Araç kiralamada daima yeni ve güvenli araçlar ve yüksek hizmet kalitesi sunan Rent Go, çatısı altında bulunduğu topluluğun 30 yıldan fazla kurumsal otomotiv sektörü deneyimini, yenilikçi vizyonu ve uzman kadrosu ile birleştirerek, kısa sürede araç kiralama sektörünün lider oyuncularından biri haline gelmiştir.
-
-                        Tamamı yerli sermaye ile kurulan Rent Go, günlük kiralama hizmetinin yanı sıra Rent Go Filo ile kurumsal şirketlere uzun dönem filo kiralama hizmeti vermektedir.
                     </p>
 
                 </div>
@@ -467,6 +552,3 @@
 
 
 </html>
-
-
-

@@ -3,6 +3,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("admin"));
+//    options.AddPolicy("PersonelPolicy", policy => policy.RequireRole("personel", "admin"));
+//    options.AddPolicy("KullaniciPolicy", policy => policy.RequireRole("kullanici", "personel", "admin"));
+//});
 
 var app = builder.Build();
 

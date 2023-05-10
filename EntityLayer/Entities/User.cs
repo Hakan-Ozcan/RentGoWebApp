@@ -25,5 +25,7 @@ namespace EntityLayer.Entities
         [Required]
         [StringLength(20)]
         public string UserPassword { get; set; }
+        [StringLength(10)]
+        public string UserRole { get; set; }
     }
 }

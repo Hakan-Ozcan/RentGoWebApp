@@ -30,4 +30,15 @@
     <ProjectReference Include="..\WebAPI\WebAPI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Login\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\MainMenu\" />
+  </ItemGroup>
+
 </Project>

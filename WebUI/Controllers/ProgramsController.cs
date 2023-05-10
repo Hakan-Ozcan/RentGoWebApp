@@ -33,6 +33,13 @@ namespace WebUI.Controllers
             }
             return View(programs);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Sil([Bind("ID,ProgramName")] Programs programs)
+        {
+            programsManager.ProgramsDelete(programs);
+            return RedirectToAction(nameof(Index));
+        }
 
 
 

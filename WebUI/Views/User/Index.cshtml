@@ -12,8 +12,8 @@
         <th>Kullanıcı Soyadı</th>
         <th>Şifre</th>
         <th>Email</th>
-        <th></th>
-        <th></th>
+        <th>UserRole</th>
+       
     </tr>
     @foreach (var item in Model)
     {
@@ -23,6 +23,7 @@
             <td>@item.UserSurname</td>
             <td>@item.UserPassword</td>
             <td>@item.UserEmail</td>
+            <td>@item.UserRole</td>
             <td>
                 @using (Html.BeginForm("DeleteUser", "User", new { id = item.ID }, FormMethod.Post))
                 {

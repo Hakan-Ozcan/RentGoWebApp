@@ -10,6 +10,7 @@ namespace WebUI.Controllers
     public class UserController : Controller
     {
         UserManager userManager = new UserManager(new EfUserDal());
+    
         public IActionResult Index()
         {
             var usersvalues = userManager.GetList();

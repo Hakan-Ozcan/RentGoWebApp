@@ -29,22 +29,31 @@
             <form>
 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Kullanici adi</label>
+                    <label for="exampleInputName">Kullanici adi</label>
                     <input type="text" class="form-control" id="kkadi" name="UserName" placeholder="Kullanici Adi Giriniz">
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Kullanici Soyadi</label>
+                    <label for="exampleInputSurname">Kullanici Soyadi</label>
                     <input type="text" class="form-control" id="ksoyadi" name="UserSurname" placeholder="Kullanici Soyadi Giriniz">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Parola</label>
+                    <label for="exampleInputPassword">Parola</label>
                     <input type="password" class="form-control" id="kparola" name="UserPassword" placeholder="Parola Oluşturunuz">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
+                    <label for="exampleInputEmail">Email address</label>
                     <input type="email" class="form-control" id="kemail" name="UserEmail" placeholder="Email Giriniz">
                 </div>
+                <div class="form-group">
+                    <label for="exampleInputRole">Kullanıcı Rolü</label>
+                    <select class="form-control" id="krole" name="UserRole">
+                        <option value="admin">Admin</option>
+                        <option value="kullanici">Kullanici</option>
+                        <option value="personel">Personel</option>
+                    </select>
+                </div>
+             
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         }
