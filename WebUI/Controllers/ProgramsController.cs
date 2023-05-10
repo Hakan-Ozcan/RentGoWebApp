@@ -2,7 +2,9 @@
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Context;
 using DataAccessLayer.EntityFramework;
+using DataAccessLayer.Migrations;
 using EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +19,7 @@ namespace WebUI.Controllers
             var model = programsManager.GetList();    
             return View(model);
         }
+       
         public IActionResult Ekle()
         {
             return View();
