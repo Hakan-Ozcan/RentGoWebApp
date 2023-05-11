@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Entities;
+@model List<Menu>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_MenuLayout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Menu Name</th>
+        
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.MenuName</td>
+            <td><a href="@item.MenuLink">Web sitesine git</a>
+            <td>
+        
+            <td>
+                @using (Html.BeginForm("DeleteMenu", "Menu", new { id = item.ID }, FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                }
+            </td>
+            <td><a href="/Menu/UpdateMenu/@item.ID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Menu/AddMenu/" class="btn btn-primary">Yeni Menu Ekle</a>

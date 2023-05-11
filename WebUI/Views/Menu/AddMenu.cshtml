@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Entities;
+@model List<Menu>
+@{
+    ViewData["Title"] = "AddMenu";
+    //Layout = "~/Pages/Shared/_MenuLayout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Rent GO</title>
+
+</head>
+<body class="position-absolute">
+
+
+    <div class="container top-50 ">
+        @using (Html.BeginForm("AddMenu", "Menu", FormMethod.Post))
+        {
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <h1 class="text-center">Menu Ekleme Sayfasi</h1>
+            <form>
+
+
+                <div class="form-group">
+                    <label for="exampleInputSurname">Menu Adi</label>
+                    <input type="text" class="form-control" id="menuadi" name="MenuName" placeholder="Menu Adi Giriniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputSurname">Menu Linki</label>
+                    <input type="text" class="form-control" id="menulink" name="MenuLink" placeholder="Menu Adi Giriniz">
+                </div>
+          
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        }
+    </div>
+</body>
+</html>

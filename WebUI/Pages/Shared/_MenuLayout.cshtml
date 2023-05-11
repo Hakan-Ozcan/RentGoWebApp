@@ -1,4 +1,6 @@
-﻿@{
+﻿@using EntityLayer.Entities;
+@model List<Menu>
+@{
     ViewData["Title"] = "Index";
     Layout = null;
 }
@@ -51,219 +53,40 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-                        @if (ViewBag.AdminRole == "A")
+                  @foreach (var item in Model)
                         {
                             <li class="nav-item has-treeview">
-                                <a href="/Programs/Ekle/" class="nav-link">
+                                <a href="@item.MenuLink" class="nav-link">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
-                                        Program Ekle
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a href="/Menu/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-copy"></i>
-                                    <p>
-                                        MenuKontrolSayfası
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item has-treeview">
-                                <a href="/Programs/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-copy"></i>
-                                    <p>
-                                        Programlar
-                                    </p>
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-chart-pie"></i>
-                                    <p>
-                                        Raporlar
-                                        <i class="right fas fa-angle-left"></i>
+                                        @item.MenuName
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="pages/charts/chartjs.html" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>İnfo Raporu</p>
+                                            <p>Hakan</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="pages/charts/flot.html" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Ciro Raporu</p>
+                                            <p>Ogün</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="pages/charts/inline.html" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Satış Raporu</p>
+                                            <p>MehmetAli</p>
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-
-                            <li class="nav-item has-treeview">
-                                <a href="/About/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        Hakkımızda
-                                    </p>
-                                </a>
-
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a href="/User/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        Kullanıcı Bilgileri
-                                    </p>
-                                </a>
 
                             </li>
 
-
-                            <li class="nav-item has-treeview">
-                                <a href="/About/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        Yetki Ekranı
-                                    </p>
-                                </a>
-
-                            </li>
-
-                            <li class="nav-item has-treeview">
-                                <a href="/Contact/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
-                                    <p>
-                                        İletişim
-                                    </p>
-                                </a>
-                            </li>
-
-
-
-                            <li class="nav-item">
-                                <a href="/Gallery/Index/" class="nav-link">
-                                    <i class="nav-icon far fa-image"></i>
-                                    <p>
-                                        Galeri
-                                    </p>
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item has-treeview">
-                                <a href="Logout/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-apple-alt"></i>
-                                    <p>
-                                        Çıkış Yap
-                                    </p>
-                                </a>
-                            </li>
                         }
-                        @if (ViewBag.AdminRole == "B")
-                        {
-                            <li class="nav-item has-treeview">
-                                <a href="/About/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        Hakkımızda
-                                    </p>
-                                </a>
 
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a href="/User/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        Kullanıcı Bilgileri
-                                    </p>
-                                </a>
-
-                            </li>
-
-
-                            <li class="nav-item has-treeview">
-                                <a href="/About/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-tree"></i>
-                                    <p>
-                                        Yetki Ekranı
-                                    </p>
-                                </a>
-
-                            </li>
-
-                            <li class="nav-item has-treeview">
-                                <a href="/Contact/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
-                                    <p>
-                                        İletişim
-                                    </p>
-                                </a>
-                            </li>
-
-
-
-                            <li class="nav-item">
-                                <a href="/Gallery/Index/" class="nav-link">
-                                    <i class="nav-icon far fa-image"></i>
-                                    <p>
-                                        Galeri
-                                    </p>
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item has-treeview">
-                                <a href="Logout/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-apple-alt"></i>
-                                    <p>
-                                        Çıkış Yap
-                                    </p>
-                                </a>
-                            </li>
-                        }
-                        @if (ViewBag.AdminRole == "C")
-                        {
-                            <li class="nav-item has-treeview">
-                                <a href="/Contact/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-edit"></i>
-                                    <p>
-                                        İletişim
-                                    </p>
-                                </a>
-                            </li>
-
-
-
-                            <li class="nav-item">
-                                <a href="/Gallery/Index/" class="nav-link">
-                                    <i class="nav-icon far fa-image"></i>
-                                    <p>
-                                        Galeri
-                                    </p>
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item has-treeview">
-                                <a href="Logout/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-apple-alt"></i>
-                                    <p>
-                                        Çıkış Yap
-                                    </p>
-                                </a>
-                            </li>
-                        } 
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
